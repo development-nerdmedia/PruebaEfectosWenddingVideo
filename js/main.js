@@ -117,8 +117,6 @@ window.addEventListener('scroll', () => {
         for (var ii = 0, lenn = line.length; ii < lenn; ii++) {
             line[ii].style.color = "#fff";
         }
-        valorposition = 52;
-        animation(valorposition);
     }
 })
 
@@ -288,9 +286,9 @@ wrapper.forEach(element => {
     });
 });
 
-function animation(valorposition) {
+function animation() {
     // if (window.scrollY > 10) {
-    console.log(valorposition)
+    console.log()
     gsap.to('.topUpx', {
         duration: 1.5,
         y: valorposition,

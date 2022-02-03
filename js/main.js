@@ -295,3 +295,35 @@ function animation() {
         delay: 0.5,
     })
 }
+
+gsap
+    .timeline({
+        repeat: -1,
+        default: {
+            duration: 6,
+        }
+    })
+    .to('.cuadrado_1', {
+        duration: 10,
+        x: 1000,
+    })
+    .to('.cuadrado_1', {
+        duration: 10,
+        x: 0,
+    })
+
+gsap
+    .timeline({
+        repeat: -1,
+        default: {
+            duration: 6,
+        }
+    })
+    .from('.cuadrado_2', {
+        duration: 10,
+        x: 1000,
+    })
+    .from('.cuadrado_2', {
+        duration: 10,
+        x: 0,
+    })

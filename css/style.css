@@ -2331,3 +2331,25 @@ button#btn3-1:active {
     opacity: 0.5; }
     .topUp img:hover {
       opacity: 1; }
+
+.cuadrado_1 {
+  width: 200px;
+  height: 200px;
+  background-color: #bbab99;
+  border-radius: 50%;
+  position: fixed;
+  top: 15%;
+  z-index: -4;
+  filter: blur(15px);
+  opacity: 0.5; }
+
+.cuadrado_2 {
+  width: 200px;
+  height: 200px;
+  background-color: #8eb4a3;
+  border-radius: 50%;
+  position: fixed;
+  top: 60%;
+  z-index: -4;
+  filter: blur(15px);
+  opacity: 0.5; }

@@ -2318,3 +2318,16 @@ button#btn3-1 div:nth-child(2) p {
 
 button#btn3-1:active {
   transform: scale(0.95); }
+
+.topUp {
+  position: fixed;
+  bottom: 0px;
+  transform: translate(0px, 52px);
+  right: 60px;
+  z-index: 99;
+  cursor: pointer; }
+  .topUp img {
+    transform: rotate(90deg);
+    opacity: 0.5; }
+    .topUp img:hover {
+      opacity: 1; }

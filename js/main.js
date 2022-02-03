@@ -32,10 +32,13 @@ var inputname = document.getElementById('full-name');
 var muteaudio = document.getElementById('mute')
 var inputnamedata = inputname.getAttribute("data-focus-visible-added")
 var interruptorid = document.getElementById('interruptor');
+var topUp = document.getElementById('topUp');
 
 jQuery(document).ready(function (argument) {
     MyApp.audio.init();
 })
+
+var valorposition = -60;
 
 
 MyApp = {
@@ -84,6 +87,7 @@ window.addEventListener('scroll', () => {
         interruptorid.style.color = "#000";
         jQuery('li.itemNavigation').removeClass('hvr-underline-from-left');
         jQuery('li.itemNavigation').addClass('hvr-underline-from-left-black');
+        animation();
 
         for (var i = 0, len = lista.length; i < len; i++) {
             lista[i].style.color = "#000";
@@ -110,12 +114,12 @@ window.addEventListener('scroll', () => {
         jQuery('li.itemNavigation').addClass('hvr-underline-from-left');
         jQuery('li.itemNavigation').removeClass('hvr-underline-from-left-black');
 
-        for (var i = 0, len = lista.length; i < len; i++) {
-            lista[i].style.color = "#fff";
-        }
-        for (var ii = 0, lenn = line.length; ii < lenn; ii++) {
-            line[ii].style.color = "#fff";
-        }
+    }
+    for (var i = 0, len = lista.length; i < len; i++) {
+        lista[i].style.color = "#fff";
+    }
+    for (var ii = 0, lenn = line.length; ii < lenn; ii++) {
+        line[ii].style.color = "#fff";
     }
 })
 
@@ -132,6 +136,10 @@ document.addEventListener("click", function (e) {
     //         document.getElementById("interruptor").innerHTML = "on";
     //     }
     // }
+    if (e.target.closest(".topUp")) {
+        document.documentElement.scrollTop = 0;
+    }
+
     if (e.target.closest(".contacto")) {
         document.querySelector(".contactopage").classList.toggle("open");
         jQuery('body').addClass('scrollhidden');
@@ -280,3 +288,12 @@ wrapper.forEach(element => {
         cardBg.style.transform = `translateX(0px) translateY(0px)`;
     });
 });
+
+function animation() {
+    // if (window.scrollY > 10) {
+    gsap.to('.topUpx', {
+        duration: 1.5,
+        y: valorposition,
+        delay: 0.5,
+    })
+}

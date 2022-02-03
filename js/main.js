@@ -32,7 +32,6 @@ var inputname = document.getElementById('full-name');
 var muteaudio = document.getElementById('mute')
 var inputnamedata = inputname.getAttribute("data-focus-visible-added")
 var interruptorid = document.getElementById('interruptor');
-var topUp = document.getElementById('topUp');
 
 jQuery(document).ready(function (argument) {
     MyApp.audio.init();
@@ -113,13 +112,12 @@ window.addEventListener('scroll', () => {
         interruptorid.style.color = "#fff";
         jQuery('li.itemNavigation').addClass('hvr-underline-from-left');
         jQuery('li.itemNavigation').removeClass('hvr-underline-from-left-black');
-
-    }
-    for (var i = 0, len = lista.length; i < len; i++) {
-        lista[i].style.color = "#fff";
-    }
-    for (var ii = 0, lenn = line.length; ii < lenn; ii++) {
-        line[ii].style.color = "#fff";
+        for (var i = 0, len = lista.length; i < len; i++) {
+            lista[i].style.color = "#fff";
+        }
+        for (var ii = 0, lenn = line.length; ii < lenn; ii++) {
+            line[ii].style.color = "#fff";
+        }
     }
 })
 

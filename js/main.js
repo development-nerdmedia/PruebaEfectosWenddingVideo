@@ -39,7 +39,6 @@ jQuery(document).ready(function (argument) {
 
 var valorposition = -60;
 
-
 MyApp = {
     audio: {
         init: function () {
@@ -86,7 +85,7 @@ window.addEventListener('scroll', () => {
         interruptorid.style.color = "#000";
         jQuery('li.itemNavigation').removeClass('hvr-underline-from-left');
         jQuery('li.itemNavigation').addClass('hvr-underline-from-left-black');
-        animation();
+        animation(valorposition);
 
         for (var i = 0, len = lista.length; i < len; i++) {
             lista[i].style.color = "#000";
@@ -118,6 +117,8 @@ window.addEventListener('scroll', () => {
         for (var ii = 0, lenn = line.length; ii < lenn; ii++) {
             line[ii].style.color = "#fff";
         }
+        valorposition = 52;
+        animation(valorposition);
     }
 })
 
@@ -287,8 +288,9 @@ wrapper.forEach(element => {
     });
 });
 
-function animation() {
+function animation(valorposition) {
     // if (window.scrollY > 10) {
+    console.log(valorposition)
     gsap.to('.topUpx', {
         duration: 1.5,
         y: valorposition,

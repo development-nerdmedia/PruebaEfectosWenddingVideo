@@ -156,6 +156,12 @@ button#btn3-1:hover {
 section.contactopage {
   cursor: url(../cursor/correo.png), pointer;
 }
+
+.nav-item:hover,
+ul li.icon .muted span:hover {
+  cursor: url(../cursor/grifo.png), pointer;
+}
+
 section.about {
   cursor: url(https://nerdvideo.club/cursor/brujula52.png), pointer;
 }

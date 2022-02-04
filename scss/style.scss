@@ -143,6 +143,44 @@ a.cerrar {
 
 /*seccion home*/
 
+body {
+  cursor: url(../cursor/radio-on-button.png), pointer;
+}
+
+button#btn2-1:hover,
+button#btn1:hover,
+button#btn3-1:hover {
+  cursor: url(../cursor/grifo.png), pointer;
+}
+
+section.contactopage {
+  cursor: url(../cursor/correo.png), pointer;
+}
+section.about {
+  cursor: url(https://nerdvideo.club/cursor/brujula52.png), pointer;
+}
+section.reels {
+  cursor: url(../cursor/film.png), pointer;
+  .reels .autoplay .slick-slide:hover {
+    cursor: url(../cursor/film.png), pointer;
+  }
+}
+section.galeria {
+  cursor: url(../cursor/camara.png), pointer;
+}
+footer {
+  cursor: default;
+}
+footer h3.order1 {
+  cursor: url(../cursor/ubicacion.png), pointer;
+}
+footer h3.order2 {
+  cursor: url(../cursor/correo-electronico.png), pointer;
+}
+footer h3.order3 {
+  cursor: url(../cursor/telephone.png), pointer;
+}
+
 .home {
   width: 100%;
   height: 100vh;
@@ -150,6 +188,17 @@ a.cerrar {
   align-items: center;
   position: relative;
   overflow: hidden;
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #000000;
+    opacity: 0.7;
+    z-index: -1;
+  }
   .context {
     margin-top: 100px;
     display: flex;
@@ -207,7 +256,7 @@ a.cerrar {
     position: relative;
     display: flex;
     justify-content: end;
-    z-index: -2;
+    // z-index: -2;
     p {
       position: absolute;
       bottom: -106px;
@@ -415,6 +464,7 @@ a.cerrar {
   top: 887px;
   left: 22%;
   transform: scale(1.07);
+  opacity: 0.8;
 }
 
 .slick-dots {
@@ -429,7 +479,8 @@ a.cerrar {
         width: 100%;
       }
       iframe,
-      .contenedorVideo {
+      .contenedorVideo,
+      video {
         display: none;
         border-radius: 20px;
         width: 100%;
@@ -442,7 +493,8 @@ a.cerrar {
         animation-fill-mode: forwards;
       }
       iframe,
-      .contenedorVideo {
+      .contenedorVideo,
+      video {
         display: block;
         width: 100%;
       }
@@ -2775,14 +2827,14 @@ button#btn2:hover {
 
 /*imgen card puntero*/
 
-.containerimgabout {
-  // padding: 40px 80px;
-  // display: -webkit-box;
-  // display: flex;
-  flex-wrap: wrap;
-  // -webkit-box-pack: center;
-  // justify-content: center;
-}
+// .containerimgabout {
+// padding: 40px 80px;
+// display: -webkit-box;
+// display: flex;
+// flex-wrap: wrap;
+// -webkit-box-pack: center;
+// justify-content: center;
+// }
 
 .cardWrap {
   // margin: 10px;
@@ -2790,7 +2842,6 @@ button#btn2:hover {
   transform: perspective(800px);
   -webkit-transform-style: preserve-3d;
   transform-style: preserve-3d;
-  cursor: pointer;
 }
 
 .cardWrap:hover .cardInfo {
@@ -2857,6 +2908,148 @@ button#btn2:hover {
   width: 100%;
   height: 100%;
   padding: 20px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  -webkit-transition: 1s cubic-bezier(0.445, 0.05, 0.55, 0.95),
+    opacity 5s 1s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  transition: 1s cubic-bezier(0.445, 0.05, 0.55, 0.95),
+    opacity 5s 1s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  pointer-events: none;
+}
+
+.cardInfo {
+  padding: 20px;
+  position: absolute;
+  bottom: 0;
+  color: #fff;
+  -webkit-transform: translateY(40%);
+  transform: translateY(40%);
+  -webkit-transition: 0.6s 1.6s cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition: 0.6s 1.6s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.cardInfo p {
+  opacity: 0;
+  text-shadow: black 0 2px 3px;
+  -webkit-transition: 0.6s 1.6s cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition: 0.6s 1.6s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.cardInfo * {
+  position: relative;
+  z-index: 1;
+}
+
+.cardInfo:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  background-image: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    from(transparent),
+    to(rgba(0, 0, 0, 0.6))
+  );
+  background-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(0, 0, 0, 0.6) 100%
+  );
+  background-blend-mode: overlay;
+  opacity: 0;
+  -webkit-transform: translateY(100%);
+  transform: translateY(100%);
+  -webkit-transition: 5s 1s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  transition: 5s 1s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+}
+
+.cardInfo h1 {
+  font-family: "Playfair Display";
+  font-size: 36px;
+  font-weight: 700;
+  text-shadow: rgba(0, 0, 0, 0.5) 0 10px 10px;
+}
+
+/*card en reels*/
+.cardWrapreels {
+  // margin: 10px;
+  -webkit-transform: perspective(800px);
+  transform: perspective(800px);
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  cursor: pointer;
+}
+
+.cardWrapreels:hover .cardInfo {
+  -webkit-transform: translateY(0);
+  transform: translateY(0);
+}
+
+.cardWrapreels:hover .cardInfo p {
+  opacity: 1;
+}
+
+.cardWrapreels:hover .cardInfo,
+.cardWrapreels:hover .cardInfo p {
+  -webkit-transition: 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  transition: 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.cardWrapreels:hover .cardInfo:after {
+  -webkit-transition: 5s cubic-bezier(0.23, 1, 0.32, 1);
+  transition: 5s cubic-bezier(0.23, 1, 0.32, 1);
+  opacity: 1;
+  -webkit-transform: translateY(0);
+  transform: translateY(0);
+}
+
+.cardWrapreels:hover .cardBg {
+  -webkit-transition: 0.6s cubic-bezier(0.23, 1, 0.32, 1),
+    opacity 5s cubic-bezier(0.23, 1, 0.32, 1);
+  transition: 0.6s cubic-bezier(0.23, 1, 0.32, 1),
+    opacity 5s cubic-bezier(0.23, 1, 0.32, 1);
+  opacity: 0.8;
+}
+
+.cardWrapreels:hover .card {
+  -webkit-transition: 0.6s cubic-bezier(0.23, 1, 0.32, 1),
+    box-shadow 2s cubic-bezier(0.23, 1, 0.32, 1);
+  transition: 0.6s cubic-bezier(0.23, 1, 0.32, 1),
+    box-shadow 2s cubic-bezier(0.23, 1, 0.32, 1);
+  box-shadow: rgba(255, 255, 255, 0.2) 0 0 40px 5px, white 0 0 0 1px,
+    rgba(0, 0, 0, 0.66) 0 30px 60px 0, inset #333 0 0 0 5px,
+    inset white 0 0 0 6px;
+}
+
+.cardreels {
+  position: relative;
+  -webkit-box-flex: 0;
+  flex: 0 0 240px;
+  width: 240px;
+  height: 320px;
+  // background-color: #333;
+  // overflow: hidden;
+  border-radius: 10px;
+  // box-shadow: rgba(0, 0, 0, 0.66) 0 30px 60px 0, inset #333 0 0 0 5px,
+  //   inset rgba(255, 255, 255, 0.5) 0 0 0 6px;
+  -webkit-transition: 1s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  transition: 0.5s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+}
+
+.cardBgreels {
+  // opacity: 0.5;
+  position: absolute;
+  // top: -20px;
+  // left: -20px;
+  width: 100%;
+  height: 100%;
+  // padding: 20px;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -3086,4 +3279,39 @@ button#btn3-1:active {
   z-index: -4;
   filter: blur(15px);
   opacity: 0.5;
+}
+
+.cuadrado_3 {
+  width: 200px;
+  height: 200px;
+  background-color: #bbab99;
+  border-radius: 50%;
+  position: fixed;
+  top: 15%;
+  z-index: -4;
+  // filter: blur(15px);
+  // opacity: 0.5;
+}
+
+.cuadrado_4 {
+  width: 200px;
+  height: 200px;
+  background-color: #8eb4a3;
+  border-radius: 50%;
+  position: fixed;
+  top: 40%;
+  z-index: -4;
+  // filter: blur(15px);
+  // opacity: 0.5;
+}
+.cuadrado_5 {
+  width: 200px;
+  height: 200px;
+  background-color: #8eb4a3;
+  border-radius: 50%;
+  position: fixed;
+  top: 65%;
+  z-index: -4;
+  // filter: blur(15px);
+  // opacity: 0.5;
 }

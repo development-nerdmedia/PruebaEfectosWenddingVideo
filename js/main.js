@@ -30,7 +30,6 @@ var menumovilblanco = document.getElementById('white1');
 var menumoviloscuro = document.getElementById('black1');
 var inputname = document.getElementById('full-name');
 var muteaudio = document.getElementById('mute')
-var inputnamedata = inputname.getAttribute("data-focus-visible-added")
 var interruptorid = document.getElementById('interruptor');
 
 jQuery(document).ready(function (argument) {
@@ -289,9 +288,46 @@ wrapper.forEach(element => {
     });
 });
 
+/* card en rells */
+const wrapperr = document.querySelectorAll(".cardWrapreels");
+
+wrapperr.forEach(element => {
+    let statee = {
+        mouseX: 0,
+        mouseY: 0,
+        height: element.clientHeight,
+        width: element.clientWidth
+    };
+
+    element.addEventListener("mousemove", ele => {
+        const card = element.querySelector(".cardreels");
+        const cardBg = card.querySelector(".cardBgreels");
+        statee.mouseX = ele.pageX - element.offsetLeft - statee.width / 2;
+        statee.mouseY = ele.pageY - element.offsetTop - statee.height / 2;
+
+        // parallax angle in card
+        const angleX = (statee.mouseX / statee.width) * 30;
+        const angleY = (statee.mouseY / statee.height) * -30;
+        card.style.transform = `rotateY(${angleX}deg) rotateX(${angleY}deg) `;
+
+        // parallax position of background in card
+        const posX = (statee.mouseX / statee.width) * -40;
+        const posY = (statee.mouseY / statee.height) * -40;
+        cardBg.style.transform = `translateX(${posX}px) translateY(${posY}px)`;
+    });
+
+    element.addEventListener("mouseout", () => {
+        const card = element.querySelector(".cardreels");
+        const cardBg = card.querySelector(".cardBgreels");
+        card.style.transform = `rotateY(0deg) rotateX(0deg) `;
+        cardBg.style.transform = `translateX(0px) translateY(0px)`;
+    });
+});
+
+
+/* END CARDS */
 function animation(valorposition) {
     // if (window.scrollY > 10) {
-    console.log(valorposition)
     gsap.to('.topUpx', {
         duration: 1.5,
         y: valorposition,
@@ -329,4 +365,59 @@ gsap
     .from('.cuadrado_2', {
         duration: 10,
         x: 0,
+    })
+
+gsap
+    .timeline({
+        repeat: -1,
+        default: {
+            duration: 6,
+        }
+    })
+    .to('.cuadrado_3', {
+        duration: 8,
+        x: 1000,
+        ease: "back.out(1.7)"
+    })
+    .to('.cuadrado_3', {
+        duration: 8,
+        x: 0,
+        ease: "back.out(1.7)"
+    })
+
+gsap
+    .timeline({
+        repeat: -1,
+        default: {
+            duration: 6,
+        }
+    })
+    .from('.cuadrado_4', {
+        duration: 8,
+        x: 1000,
+        ease: "elastic.out(1, 0.3)"
+    })
+    .from('.cuadrado_4', {
+        duration: 8,
+        x: 0,
+        ease: "elastic.out(1, 0.3)"
+    })
+
+
+gsap
+    .timeline({
+        repeat: -1,
+        default: {
+            duration: 6,
+        }
+    })
+    .to('.cuadrado_5', {
+        duration: 8,
+        x: 1000,
+        ease: "bounce.inOut"
+    })
+    .to('.cuadrado_5', {
+        duration: 8,
+        x: 0,
+        ease: "bounce.inOut"
     })
